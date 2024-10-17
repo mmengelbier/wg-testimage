@@ -1,5 +1,5 @@
 
-name: Get triggered files
+name: Execute package tests
 
 on:
   push:
