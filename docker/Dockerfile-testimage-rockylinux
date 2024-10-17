@@ -7,7 +7,7 @@ FROM openapx/rbin:latest-rockylinux
 RUN dnf -y jq \
     mkdir -p /opt/r-repo-wg/scripts
 
-COPY -chmod 555 scripts/*.sh /opt/r-repo-wg/scripts/
+COPY --chmod=555 scripts/*.sh /opt/r-repo-wg/scripts/
 
 
 
