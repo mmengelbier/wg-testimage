@@ -1,0 +1,44 @@
+
+name: Get triggered files
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - development
+    paths:
+      - '!README.md'
+      - '.github/workflows/r-repo-wg-test-package.yml'
+      - 'scripts/execute_package_tests.sh'
+      - 'packages/*'
+ 
+  workflow_dispatch:
+
+
+jobs:
+  test_packages:
+    name: Test packages
+    runs-on: ubuntu-latest
+    container:
+      image: mmengelbier/wg-testimage:latest-rockylinux
+      credentials:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+      env:
+        ACTION_TOKEN: ${{ github.token }}
+
+    steps:
+
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: (Dev) Set up environment
+        run: |
+          cp scripts/execute_package_tests.sh /opt/r-repo-wg/scripts
+          chmod u+rx-w /opt/r-repo-wg/scripts/execute_package_tests.sh
+
+      - name: Executing tests 
+        run: |
+          /opt/r-repo-wg/scripts/execute_package_tests.sh
+          

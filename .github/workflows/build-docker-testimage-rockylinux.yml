@@ -10,6 +10,7 @@ on:
     paths:
       - '!README.md'
       - '!packages/*'
+      - '!scripts/execute_package_tests.sh'
       - '.github/workflows/build-docker-testimage-rockylinux.yml'
       - 'docker/Dockerfile-testimage-rockylinux'
       - 'scripts/*'
