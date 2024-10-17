@@ -7,8 +7,13 @@
 
 
 # -- identify packages
-SPECS=$(/opt/r-repo-wg/scripts/committed_files.sh)
+SPECS=$(/opt/r-repo-wg/scripts/committed_files.sh | tr ' '  '\n' | grep "^packages/" )
+
+if [ -z ${SPECS} ]; then
+  echo "No packages to process"
+  exit 0
+fi
 
 
-#
+# -- packages
 echo "${SPECS}"
