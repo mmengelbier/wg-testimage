@@ -37,6 +37,6 @@ cd $WRK
 # -- build new site library
 WRKLIBS=${TMPLIB}:$(Rscript -e "cat( .Library.site, sep = \"\")")
 
-echo "R_LIBS_SITE=${WRKLIBS" > ${WRK}/.Renviron
+echo "R_LIBS_SITE=${WRKLIBS}" > ${WRK}/.Renviron
 
 echo "$(Rscript -e "cat( .Library.site, sep = \"\")")"
