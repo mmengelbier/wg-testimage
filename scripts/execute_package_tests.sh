@@ -16,4 +16,5 @@ fi
 
 
 # -- packages
-echo "${SPECS}"
+SPECFILE=$(basename ${SPECS})
+echo "${SPECFILE%.*}"
