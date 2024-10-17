@@ -39,4 +39,4 @@ WRKLIBS=${TMPLIB}:$(Rscript -e "cat( .Library.site, sep = \"\")")
 
 echo "R_LIBS_SITE=${WRKLIBS}" > ${WRK}/.Renviron
 
-echo "$(Rscript -e "cat( .Library.site, sep = \"\")")"
+echo "$(Rscript -e \".Library.site\")"
