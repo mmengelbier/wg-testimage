@@ -34,9 +34,13 @@ mkdir -p ${TMPLIB}
 # -- change working directory
 cd $WRK
 
-# -- build new site library
+
+# -- build test environment library scheme
 WRKLIBS=${TMPLIB}:$(Rscript -e "cat( .Library.site, sep = \"\")")
 
 echo "R_LIBS_SITE=${WRKLIBS}" > ${WRK}/.Renviron
 
-echo "$( Rscript -e '.libPaths()' )"
+
+# -- install package under test
+
+Rscript -e 'install.packages( $PKG, "${TMPLIB}", repos = "https://cran.rstudio.com", INSTALL_opts = "--install-tests" )'
