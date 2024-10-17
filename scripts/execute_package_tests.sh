@@ -43,4 +43,4 @@ echo "R_LIBS_SITE=${WRKLIBS}" > ${WRK}/.Renviron
 
 # -- install package under test
 
-Rscript -e 'install.packages( $PKG, "${TMPLIB}", repos = "https://cran.rstudio.com", INSTALL_opts = "--install-tests" )'
+Rscript -e 'install.packages( "${PKG}", "${TMPLIB}", repos = "https://cran.rstudio.com", INSTALL_opts = "--install-tests" )'
