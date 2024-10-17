@@ -32,9 +32,11 @@ TMPLIB=${WRK}/${PKG}
 mkdir -p ${TMPLIB}
 
 # -- change working directory
-cd $TMPLIB
+cd $WRK
 
 # -- build new site library
-RLIBS=${TMPLIB}:$(Rscript -e "cat( .Library.site, sep = \"\")")
+WRKLIBS=${TMPLIB}:$(Rscript -e "cat( .Library.site, sep = \"\")")
 
-echo "${RLIBS}"
+echo "R_LIBS_SITE=${WRKLIBS" > ${WRK}/.Renviron
+
+echo "$(Rscript -e "cat( .Library.site, sep = \"\")")"
