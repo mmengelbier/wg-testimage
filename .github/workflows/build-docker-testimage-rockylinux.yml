@@ -11,7 +11,7 @@ on:
       - '!README.md'
       - '!packages/*'
       - '.github/workflows/build-docker-testimage-rockylinux.yml'
-      - 'docker/Dockerfile-testimage-roclylinux'
+      - 'docker/Dockerfile-testimage-rockylinux'
       - 'scripts/*'
   workflow_dispatch:
 
