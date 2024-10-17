@@ -4,7 +4,7 @@ FROM openapx/rbin:latest-rockylinux
 
 
 # -- stage scaffolding
-RUN dnf install -y jq \
+RUN dnf install -y jq && \
     mkdir -p /opt/r-repo-wg/scripts
 
 COPY --chmod=555 scripts/*.sh /opt/r-repo-wg/scripts/
